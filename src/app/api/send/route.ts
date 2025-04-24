@@ -1,6 +1,5 @@
 import { EmailTemplate } from "../../../components/email-template";
 import { Resend } from "resend";
-import * as React from "react";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,36 +11,29 @@ export async function POST(request: Request) {
 
     // Validate the required fields
     if (!name || !senderEmail || !message) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
+      return Response.json(
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
     // Send the email using Resend
-    const response = await resend.emails.send({
+    const data = await resend.emails.send({
       from: "Profile <onboarding@resend.dev>",
       to: ["garsetayusuf@gmail.com"],
       subject: "New Contact Form Submission",
       react: EmailTemplate({
-        name: name,
-        senderEmail: senderEmail,
-        message: message,
-      }) as React.ReactElement,
+        name,
+        senderEmail,
+        message,
+      }),
     });
 
-    if (!response || !response.id) {
-      return new Response(JSON.stringify({ error: "Failed to send email" }), {
-        status: 500,
-      });
-    }
-
-    return new Response(JSON.stringify({ data: response }), { status: 200 });
+    return Response.json({ data });
   } catch (error) {
+    console.error(error);
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
-    return new Response(JSON.stringify({ error: errorMessage }), {
-      status: 500,
-    });
+    return Response.json({ error: errorMessage }, { status: 500 });
   }
 }

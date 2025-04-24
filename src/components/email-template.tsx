@@ -6,11 +6,11 @@ interface EmailTemplateProps {
   message: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+export const EmailTemplate = ({
   name,
   senderEmail,
   message,
-}) => (
+}: EmailTemplateProps) => (
   <div
     style={{
       fontFamily: "Arial, sans-serif",
