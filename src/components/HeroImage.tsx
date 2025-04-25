@@ -8,7 +8,7 @@ const HeroImage = () => {
         src={logo}
         alt="logo"
         loading="eager"
-        className="h-full w-full md:h-[75%] md:w-[75%] object-cover object-center rounded-2xl"
+        className="h-full w-full max-md:h-[45%] max-md:w-[45%] object-cover object-center rounded-2xl"
         priority
         height={750}
         width={750}
