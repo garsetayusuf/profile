@@ -62,7 +62,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main
             className={cn(
-              "flex  relative  break-words h-dvh min-h-screen items-center justify-between pt-20 pb-4 px-40 max-md:p-4 bg-transparent max-sm:pt-24 max-md:pt-24 bg-[radial-gradient(#2f7df4_1px,transparent_1px)] [background-size:28px_28px]"
+              "flex relative break-words h-dvh min-h-screen items-center justify-between pt-20 pb-4 px-40 max-md:p-4 bg-transparent max-sm:pt-24 max-md:pt-24 bg-graph-accent"
             )}
           >
             {/* NAVBAR ->  */}

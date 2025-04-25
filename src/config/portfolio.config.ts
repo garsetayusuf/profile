@@ -213,7 +213,7 @@ export const portfolioConfig = {
       location: "Yogyakarta, Indonesia",
       period: "2014 - 2017",
       description:
-        "I am currently Studying at SMK Negeri 3 Yogyakarta, majoring in Electrical Enginering. I have passion learned about programming and web development.",
+        "I am Studying at SMK Negeri 3 Yogyakarta, majoring in Electrical Enginering. I have passion learned about programming.",
     },
   ],
 
